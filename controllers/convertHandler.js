@@ -1,8 +1,6 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    let result;
-
     const isAlpha = (c) =>{
       return /[a-zA-Z]/.test(c);
     }
@@ -15,7 +13,7 @@ function ConvertHandler() {
     if(!numStr) return 1;
 
     let parts = numStr.split('/');
-    if(parts.length > 2) return NaN;
+    if(parts.length > 2) return null;
     if(parts.length === 2){
       const [numerator,denominator] = parts;
       return parseFloat(numerator) / parseFloat(denominator);
@@ -40,9 +38,10 @@ function ConvertHandler() {
     else if (initUnit === 'kg' || initUnit === 'lbs'){
       result = initUnit === 'kg' ? 'lbs' : 'kg';
     }
-    else{
+    else if(initUnit === 'mi' || initUnit === 'km'){
       result = initUnit === 'mi' ? 'km' : 'mi';
     }
+    else return undefined;
     return result;
   };
 
