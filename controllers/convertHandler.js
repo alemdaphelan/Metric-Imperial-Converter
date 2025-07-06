@@ -12,7 +12,7 @@ function ConvertHandler() {
       index++;
     }
     let numStr = input.slice(0,index);
-    if(numStr.length === 0) return 1;
+    if(!numStr) return 1;
 
     let parts = numStr.split('/');
     if(parts.length > 2) return NaN;
